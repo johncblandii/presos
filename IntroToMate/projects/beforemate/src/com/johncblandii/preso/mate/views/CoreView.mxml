@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"  xmlns:controls="com.johncblandii.preso.mate.controls.*"
+		 width="100%" height="100%">
+	
+	<!-- Required for code hinting on mxml tags, remove and see beforemate.mxml -->
+	<mx:Metadata>
+		[Event(name="refreshData", type="com.johncblandii.preso.mate.events.ContentEvent")]
+	</mx:Metadata>
+	
+	<mx:ArrayCollection id="contentList" />
+	
+	<controls:DataUI contentList="{contentList}" />
+</mx:VBox>

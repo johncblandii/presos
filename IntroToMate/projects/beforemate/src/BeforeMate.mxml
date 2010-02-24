@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="com.johncblandii.preso.mate.views.*" xmlns:managers="com.johncblandii.preso.mate.business.managers.*"
+						layout="absolute" width="800" height="600"
+						applicationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import com.johncblandii.preso.mate.events.ContentEvent;
+			import com.johncblandii.preso.mate.business.managers.DataManager;
+			
+			private function init():void{
+				//get the initial data
+				dataDude.getData();
+			}
+			
+		]]>
+	</mx:Script>
+	<managers:DataManager id="dataDude">
+		<managers:dataReady>
+			core.contentList = event.dataItems;
+		</managers:dataReady>
+	</managers:DataManager>
+	
+	<views:CoreView id="core">
+		<views:refreshData>
+			<![CDATA[
+				dataDude.getData();
+			]]>
+		</views:refreshData>
+	</views:CoreView>
+</mx:WindowedApplication>

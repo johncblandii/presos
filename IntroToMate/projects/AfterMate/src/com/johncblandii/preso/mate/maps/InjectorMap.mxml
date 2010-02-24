@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mate:EventMap xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:mate="http://mate.asfusion.com/" xmlns:managers="com.johncblandii.preso.mate.business.managers.*">
+	<mx:Script>
+		<![CDATA[
+			import com.johncblandii.preso.mate.controls.DataList;
+			import com.johncblandii.preso.mate.business.managers.ContentManager;
+		]]>
+	</mx:Script>
+	<mate:Injectors target="{DataList}" debug="true">
+		<mate:PropertyInjector source="{ContentManager}" sourceKey="content" targetKey="contentList" />
+	</mate:Injectors>
+</mate:EventMap>

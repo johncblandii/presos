@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<component fullname="components.SomeService" name="SomeService" path="components">
+	
+		<method access="public" name="addUser" output="false" returntype="boolean">
+			<name>addUser</name>
+		
+		</method>
+	
+		<method access="public" name="getUsers" output="false" returntype="Array">
+			<name>getUsers</name>
+		
+		</method>
+	
+	</component>
+</root>

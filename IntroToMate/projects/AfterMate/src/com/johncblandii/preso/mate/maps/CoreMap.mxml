@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mate:EventMap xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:mate="http://mate.asfusion.com/" xmlns:managers="com.johncblandii.preso.mate.business.managers.*" xmlns:maps="com.johncblandii.preso.mate.maps.*">
+	<mx:Script>
+		<![CDATA[
+			import com.asfusion.mate.utils.debug.Debugger;
+			import com.johncblandii.preso.mate.business.managers.ContentManager;
+			import mx.events.FlexEvent;
+			import com.johncblandii.preso.mate.business.managers.DataManager;
+			import com.johncblandii.preso.mate.events.ContentEvent;
+		]]>
+	</mx:Script>
+	
+	<mate:Debugger level="{Debugger.ALL}" />
+	
+	<maps:InjectorMap />
+	
+	<!-- INITIALIZING EVENTS -->
+	<mate:EventHandlers type="{FlexEvent.PREINITIALIZE}" debug="true">
+		<mate:ObjectBuilder generator="{DataManager}" constructorArguments="{[scope.dispatcher]}" />
+		<mate:ObjectBuilder generator="{ContentManager}" constructorArguments="{[scope.dispatcher]}" />
+	</mate:EventHandlers>
+	
+	<mate:EventHandlers type="{FlexEvent.APPLICATION_COMPLETE}" debug="true">
+		<!-- really this should call the REFRESH event below but we'll keep it simple for now -->
+		<mate:MethodInvoker generator="{DataManager}" method="getData" />
+	</mate:EventHandlers>
+	
+	<!-- GET DATA EVENTS -->
+	<mate:EventHandlers type="{ContentEvent.DATA_READY}" debug="true">
+		<mate:MethodInvoker generator="{ContentManager}" method="updateContent" arguments="{[event.dataItems]}" />
+	</mate:EventHandlers>
+	
+	<mate:EventHandlers type="{ContentEvent.REFRESH}" debug="true">
+		<mate:MethodInvoker generator="{DataManager}" method="getData" />
+	</mate:EventHandlers>
+</mate:EventMap>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 width="100%" height="100%">
+	<mx:Metadata>
+		[Event(name="refreshData", type="com.johncblandii.preso.mate.events.ContentEvent")]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import com.johncblandii.preso.mate.events.ContentEvent;
+		]]>
+	</mx:Script>
+	
+	<mx:ArrayCollection id="contentList" />
+	
+	<mx:Label text="Total Items: {contentList.length}" />
+	<mx:DataGrid width="100%" height="100%" dataProvider="{contentList}" />
+	
+	<mx:HBox width="100%">
+		<mx:Button label="Refresh">
+			<mx:click>
+				<![CDATA[
+					dispatchEvent(new ContentEvent(ContentEvent.REFRESH, true)); //NOTE: bubbles must be true
+				]]>
+			</mx:click>
+		</mx:Button>
+		<mx:Button label="Edit" enabled="false" /> <!-- not wired up; just here for effect -->
+		<mx:Button label="New" enabled="false" /> <!-- not wired up; just here for effect -->	
+	</mx:HBox>
+</mx:VBox>

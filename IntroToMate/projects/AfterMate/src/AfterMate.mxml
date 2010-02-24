@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="com.johncblandii.preso.mate.views.*"
+						layout="absolute" width="1024" height="768" xmlns:maps="com.johncblandii.preso.mate.maps.*">
+	
+	<maps:CoreMap />
+	
+	<views:CoreView />
+</mx:WindowedApplication>

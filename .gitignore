@@ -1,0 +1,7 @@
+!.gitignore
+!.htaccess
+.*
+settings.xml
+bin-debug
+html-template
+bin-release
